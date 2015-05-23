@@ -8,7 +8,7 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
 for request in range(10):
     print("Sending request %s" % request)
-    time.sleep(2)
+    time.sleep(1)
     socket.send(b"%i" % request)
     message = socket.recv()
     print("Received reply %s [ %s ]" % (request, message))
