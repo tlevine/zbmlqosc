@@ -10,9 +10,10 @@ socket.bind("tcp://*:5555")
 
 if not os.path.exists('db'):
     print("db not found, creating")
-    ct = bcolz.ctable([np.empty(0, dtype="i8,")],
+    ct = bcolz.ctable([np.empty(0, dtype="i8")],
                       names=['data'],
-                      rootdir='db')
+                      rootdir='db',
+                      )
 else:
     print("db found, initializing")
     ct = bcolz.open('db')
@@ -21,4 +22,5 @@ while True:
     message = socket.recv()
     print("Received request: %s" % message)
     ct.append((message,))
+    ct.flush()
     socket.send(b"OK")
