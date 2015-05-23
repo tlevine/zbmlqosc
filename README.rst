@@ -16,10 +16,29 @@ Components
 
 The very nature of this software means we have multiple moving parts.
 
-:``listener.py``: Server componenet that listens for data and stores it in a
+:``listener.py``: Server component that listens for data and stores it in a
                   bcolz ctable.
 :``sender.py``: A sample client that sends data.
 :``plotter.py``: A simple matplotlib based dashboard.
+
+Running it
+----------
+
+In three separate shells (hint: use tmux), run:
+
+::
+
+    $ python server.py
+
+::
+
+    $ python sender.py
+
+::
+
+    $ python plotter.py
+
+You can then run ``sender.py`` again and again and watch the graph change.
 
 License
 -------
